@@ -548,6 +548,50 @@
   scroll-behavior: smooth;
 }
 
+.project-viewer-toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+  padding: 4px 0 12px;
+  background-color: #fff;
+  color: #2e2e2e;
+  font-family: "EB Garamond", serif;
+  font-size: 14px;
+}
+
+.project-viewer-toolbar button {
+  width: 32px;
+  height: 32px;
+  display: grid;
+  place-items: center;
+  border: 1px solid #d8d8d8;
+  background-color: #fff;
+  color: #2e2e2e;
+  cursor: none;
+  font-size: 16px;
+  transition: border-color 0.2s ease, color 0.2s ease, opacity 0.2s ease;
+}
+
+.project-viewer-toolbar button:hover {
+  border-color: #2e2e2e;
+  color: #000;
+}
+
+.project-viewer-toolbar button:disabled {
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+.project-viewer-toolbar span {
+  min-width: 42px;
+  text-align: center;
+}
+
 .project-scroll-viewer::-webkit-scrollbar,
 .project-meta-panel::-webkit-scrollbar,
 .project-meta-middle::-webkit-scrollbar {
@@ -556,7 +600,7 @@
 
 .project-page {
   margin: 0 auto 36px;
-  width: min(70%, 1040px);
+  width: min(var(--project-page-width, 70%), 1040px);
 }
 
 .project-page img {
@@ -770,6 +814,10 @@
   }
 
   .wrapper button {
+    cursor: pointer;
+  }
+
+  .project-viewer-toolbar button {
     cursor: pointer;
   }
 
