@@ -57,113 +57,115 @@ const languages = [
 const Curriculum = () => {
   return (
     <div className="curriculum">
-      <article className="cv-sheet" aria-label="Nguyen Gia Lam curriculum vitae">
-        <header className="cv-hero">
-          <div className="cv-portrait" aria-label="Profile portrait">
-            {profileImage ? (
-              <img src={profileImage} alt="Nguyen Gia Lam" />
-            ) : (
-              <div className="cv-portrait-placeholder">
-                <span>Nguyen Gia Lam</span>
-                <span>Jimmy</span>
+      <div className="cv-spread" aria-label="Nguyen Gia Lam curriculum vitae">
+        <article className="cv-page cv-page--intro">
+          <header className="cv-hero">
+            <div className="cv-portrait" aria-label="Profile portrait">
+              {profileImage ? (
+                <img src={profileImage} alt="Nguyen Gia Lam" />
+              ) : (
+                <div className="cv-portrait-placeholder">
+                  <span>Nguyen Gia Lam</span>
+                  <span>Jimmy</span>
+                </div>
+              )}
+            </div>
+
+            <div className="cv-intro">
+              <h1>
+                Nguyen Gia Lam
+                <span>(Jimmy)</span>
+              </h1>
+              <p>Graduate Architecture Student</p>
+              <address>
+                Australia, Sydney
+                <br />
+                <a href="mailto:lenguyengialam2004@gmail.com">
+                  lenguyengialam2004@gmail.com
+                </a>
+                <br />
+                <a href="tel:+61412478274">0412478274</a>
+              </address>
+            </div>
+          </header>
+
+          <section className="cv-section cv-summary" aria-labelledby="summary-title">
+            <h2 id="summary-title">Professional Summary</h2>
+            <p>
+              Architecture student at UTS, graduating May 2026, with internship
+              experience at an international design studio, contributing to
+              concept design, site work, and documentation. Skilled in Rhino,
+              with developing proficiency in Revit and strong capabilities in
+              Adobe Creative Suite. Currently undertaking a Graduate Certificate
+              towards a Master of Construction Management.
+            </p>
+          </section>
+
+          <section className="cv-section" aria-labelledby="education-title">
+            <h2 id="education-title">Education</h2>
+            {education.map((item) => (
+              <div className="cv-entry" key={`${item.period}-${item.title}`}>
+                <div className="cv-period">{item.period}</div>
+                <div className="cv-entry-body">
+                  <h3>{item.title}</h3>
+                  <p>{item.place}</p>
+                  {item.details && (
+                    <ul>
+                      {item.details.map((detail) => (
+                        <li key={detail}>{detail}</li>
+                      ))}
+                    </ul>
+                  )}
+                </div>
               </div>
-            )}
-          </div>
+            ))}
+          </section>
 
-          <div className="cv-intro">
-            <h1>
-              Nguyen Gia Lam
-              <span>(Jimmy)</span>
-            </h1>
-            <p>Graduate Architecture Student</p>
-            <address>
-              Australia, Sydney
-              <br />
-              <a href="mailto:lenguyengialam2004@gmail.com">
-                lenguyengialam2004@gmail.com
-              </a>
-              <br />
-              <a href="tel:+61412478274">0412478274</a>
-            </address>
-          </div>
-        </header>
+          <section className="cv-section" aria-labelledby="skills-title">
+            <h2 id="skills-title">Skills</h2>
+            <div className="cv-list">
+              {skills.map(([label, value]) => (
+                <div className="cv-list-row" key={label}>
+                  <strong>{label}</strong>
+                  <span>{value}</span>
+                </div>
+              ))}
+            </div>
+          </section>
 
-        <section className="cv-section cv-summary" aria-labelledby="summary-title">
-          <h2 id="summary-title">Professional Summary</h2>
-          <p>
-            Architecture student at UTS, graduating May 2026, with internship
-            experience at an international design studio, contributing to
-            concept design, site work, and documentation. Skilled in Rhino,
-            with developing proficiency in Revit and strong capabilities in
-            Adobe Creative Suite. Currently undertaking a Graduate Certificate
-            towards a Master of Construction Management. A motivated and
-            detail-oriented individual seeking to apply technical and design
-            skills in a professional architecture environment.
-          </p>
-        </section>
+          <section className="cv-section" aria-labelledby="languages-title">
+            <h2 id="languages-title">Languages</h2>
+            <div className="cv-list">
+              {languages.map(([label, value]) => (
+                <div className="cv-list-row" key={label}>
+                  <strong>{label}</strong>
+                  <span>{value}</span>
+                </div>
+              ))}
+            </div>
+          </section>
+        </article>
 
-        <section className="cv-section" aria-labelledby="education-title">
-          <h2 id="education-title">Education</h2>
-          {education.map((item) => (
-            <div className="cv-entry" key={`${item.period}-${item.title}`}>
-              <div className="cv-period">{item.period}</div>
-              <div className="cv-entry-body">
-                <h3>{item.title}</h3>
-                <p>{item.place}</p>
-                {item.details && (
+        <article className="cv-page cv-page--experience">
+          <section className="cv-section" aria-labelledby="internships-title">
+            <h2 id="internships-title">Internships</h2>
+            {internships.map((item) => (
+              <div className="cv-entry" key={`${item.period}-${item.title}`}>
+                <div className="cv-period">{item.period}</div>
+                <div className="cv-entry-body">
+                  <h3>{item.title}</h3>
+                  <p>{item.place}</p>
                   <ul>
                     {item.details.map((detail) => (
                       <li key={detail}>{detail}</li>
                     ))}
                   </ul>
-                )}
-              </div>
-            </div>
-          ))}
-        </section>
-
-        <section className="cv-section" aria-labelledby="internships-title">
-          <h2 id="internships-title">Internships</h2>
-          {internships.map((item) => (
-            <div className="cv-entry" key={`${item.period}-${item.title}`}>
-              <div className="cv-period">{item.period}</div>
-              <div className="cv-entry-body">
-                <h3>{item.title}</h3>
-                <p>{item.place}</p>
-                <ul>
-                  {item.details.map((detail) => (
-                    <li key={detail}>{detail}</li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          ))}
-        </section>
-
-        <section className="cv-section" aria-labelledby="skills-title">
-          <h2 id="skills-title">Skills</h2>
-          <div className="cv-list">
-            {skills.map(([label, value]) => (
-              <div className="cv-list-row" key={label}>
-                <strong>{label}</strong>
-                <span>{value}</span>
+                </div>
               </div>
             ))}
-          </div>
-        </section>
-
-        <section className="cv-section" aria-labelledby="languages-title">
-          <h2 id="languages-title">Languages</h2>
-          <div className="cv-list">
-            {languages.map(([label, value]) => (
-              <div className="cv-list-row" key={label}>
-                <strong>{label}</strong>
-                <span>{value}</span>
-              </div>
-            ))}
-          </div>
-        </section>
-      </article>
+          </section>
+        </article>
+      </div>
     </div>
   );
 };

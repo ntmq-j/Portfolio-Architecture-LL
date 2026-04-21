@@ -673,20 +673,35 @@
   display: none;
 }
 
-.cv-sheet {
+.cv-spread {
   box-sizing: border-box;
-  width: min(1180px, calc(100vw - 330px));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 34px;
   min-height: 95vh;
-  margin: 0 auto;
-  padding: 11vh 0 13vh;
+  padding: 24px 34px;
+}
+
+.cv-page {
+  box-sizing: border-box;
+  height: min(86vh, 980px);
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  padding: min(5.4vh, 58px) min(4.4vh, 48px);
+  background-color: #fff;
+}
+
+.cv-page--experience {
+  padding-top: min(7.2vh, 78px);
 }
 
 .cv-hero {
   display: grid;
-  grid-template-columns: minmax(360px, 0.9fr) minmax(360px, 1fr);
+  grid-template-columns: 0.95fr 1fr;
   align-items: end;
-  gap: 54px;
-  margin-bottom: 76px;
+  gap: min(3.2vh, 34px);
+  margin-bottom: min(4.8vh, 52px);
 }
 
 .cv-portrait {
@@ -709,9 +724,9 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 8px;
+  gap: 4px;
   color: #222;
-  font-size: clamp(30px, 4vw, 58px);
+  font-size: min(3vh, 34px);
   line-height: 1;
   text-align: center;
 }
@@ -722,12 +737,12 @@
 }
 
 .cv-intro {
-  padding-bottom: 6px;
+  padding-bottom: min(0.4vh, 5px);
 }
 
 .cv-intro h1 {
-  margin: 0 0 10px;
-  font-size: clamp(34px, 3.2vw, 54px);
+  margin: 0 0 min(0.6vh, 7px);
+  font-size: min(2.6vh, 30px);
   font-weight: 400;
   line-height: 1.06;
 }
@@ -738,13 +753,13 @@
 }
 
 .cv-intro p {
-  margin: 0 0 48px;
-  font-size: clamp(26px, 2.2vw, 38px);
+  margin: 0 0 min(3vh, 34px);
+  font-size: min(2vh, 23px);
   line-height: 1.16;
 }
 
 .cv-intro address {
-  font-size: clamp(22px, 1.8vw, 32px);
+  font-size: min(1.65vh, 19px);
   font-style: normal;
   line-height: 1.45;
 }
@@ -756,45 +771,45 @@
 }
 
 .cv-section {
-  margin-top: 82px;
+  margin-top: min(4.9vh, 54px);
 }
 
 .cv-section h2 {
-  margin: 0 0 28px;
-  font-size: clamp(36px, 3.6vw, 66px);
+  margin: 0 0 min(1.7vh, 19px);
+  font-size: min(3.3vh, 38px);
   font-weight: 400;
   line-height: 1;
 }
 
 .cv-summary {
-  width: min(820px, 78%);
-  margin-left: 32%;
+  width: 100%;
+  margin-left: 0;
 }
 
 .cv-summary p {
   margin: 0;
-  font-size: clamp(23px, 1.9vw, 32px);
+  font-size: min(1.45vh, 16px);
   font-style: italic;
-  line-height: 1.35;
+  line-height: 1.32;
 }
 
 .cv-entry {
   display: grid;
-  grid-template-columns: 260px minmax(0, 1fr);
-  gap: 58px;
-  margin-top: 26px;
+  grid-template-columns: minmax(104px, 0.42fr) minmax(0, 1fr);
+  gap: min(3.4vh, 38px);
+  margin-top: min(1.7vh, 19px);
 }
 
 .cv-period {
-  padding-top: 4px;
-  font-size: clamp(24px, 2vw, 35px);
+  padding-top: min(0.2vh, 3px);
+  font-size: min(1.55vh, 17px);
   font-weight: 700;
   line-height: 1.2;
 }
 
 .cv-entry-body h3 {
   margin: 0;
-  font-size: clamp(25px, 2.1vw, 36px);
+  font-size: min(1.7vh, 19px);
   font-weight: 500;
   line-height: 1.18;
 }
@@ -802,30 +817,30 @@
 .cv-entry-body p,
 .cv-entry-body li,
 .cv-list-row {
-  font-size: clamp(22px, 1.8vw, 31px);
-  line-height: 1.35;
+  font-size: min(1.43vh, 16px);
+  line-height: 1.32;
 }
 
 .cv-entry-body p {
-  margin: 2px 0 0;
+  margin: min(0.2vh, 2px) 0 0;
   font-style: italic;
 }
 
 .cv-entry-body ul {
-  margin: 12px 0 0;
+  margin: min(0.8vh, 9px) 0 0;
   padding-left: 0;
   list-style-position: inside;
 }
 
 .cv-list {
   display: grid;
-  gap: 6px;
+  gap: min(0.5vh, 6px);
 }
 
 .cv-list-row {
   display: grid;
-  grid-template-columns: 260px minmax(0, 1fr);
-  gap: 58px;
+  grid-template-columns: minmax(104px, 0.42fr) minmax(0, 1fr);
+  gap: min(3.4vh, 38px);
 }
 
 .cv-list-row strong {
@@ -833,18 +848,15 @@
 }
 
 @media screen and (max-width: 1400px) {
-  .cv-sheet {
-    width: min(980px, calc(100vw - 310px));
-  }
-
   .cv-hero {
     grid-template-columns: 1fr;
     align-items: start;
+    gap: min(2vh, 22px);
+    margin-bottom: min(3.4vh, 38px);
   }
 
-  .cv-summary {
-    width: 100%;
-    margin-left: 0;
+  .cv-portrait {
+    width: 78%;
   }
 
   .curriculum::-webkit-scrollbar {
@@ -1021,14 +1033,30 @@
     width: calc(100% - 5vh);
   }
 
-  .cv-sheet {
-    width: 100%;
-    padding: 7vh 0 9vh;
+  .cv-spread {
+    display: grid;
+    justify-items: center;
+    gap: 28px;
+    min-height: auto;
+    padding: 0 0 9vh;
+  }
+
+  .cv-page {
+    width: min(100%, 560px);
+    height: auto;
+    aspect-ratio: auto;
+    overflow: visible;
+    padding: 42px 30px;
   }
 
   .cv-hero {
+    grid-template-columns: 1fr;
     gap: 30px;
     margin-bottom: 52px;
+  }
+
+  .cv-portrait {
+    width: 100%;
   }
 
   .cv-section {
