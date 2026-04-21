@@ -468,11 +468,17 @@
 .wrapper figure {
   margin: 0;
   width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   text-align: right;
 }
 
 .wrapper img {
   width: 100%;
+  height: calc(100% - 28px);
+  object-fit: contain;
 }
 
 .wrapper figcaption {

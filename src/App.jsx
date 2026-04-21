@@ -1,7 +1,7 @@
 import { Route, Routes } from 'react-router-dom'
 import NavBar from './Components/Navbar'
 import './App.css'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { motion } from 'framer-motion'
 import HomePage from './Components/HomePage'
 import Curriculum from './Components/Curriculum'
@@ -53,8 +53,8 @@ function App() {
     }
   }
 
-  const textEnter = () => setCursorVariant("text")
-  const textLeave = () => setCursorVariant("default")
+  const textEnter = useCallback(() => setCursorVariant("text"), [])
+  const textLeave = useCallback(() => setCursorVariant("default"), [])
 
   // const textClick = () => {
   //   setCursorVariant("click")

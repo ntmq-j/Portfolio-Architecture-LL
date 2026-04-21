@@ -66,7 +66,7 @@ const ProjectDetail = ({ textEnter, textLeave }) => {
               onMouseLeave={textLeave}
             />
           </button>
-          <figure>
+          <figure className="project-image-frame">
             <img
               loading="lazy"
               src={project.images[currentImage]}
