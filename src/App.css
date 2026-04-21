@@ -52,32 +52,18 @@
 .NavBar {
   position: fixed;
   bottom: 2.5vh;
-  display: grid;
-  grid-template-rows: auto 1fr auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
   width: 250px;
   height: 95vh;
   z-index: 9998;
-  box-sizing: border-box;
-  padding-top: 8px;
 }
 
 .NavBar img {
   width: 100px;
-}
-
-.navLinks {
-  align-self: center;
-  display: grid;
-  justify-items: center;
-  gap: clamp(56px, 13vh, 150px);
-}
-
-.navContact {
-  min-height: 28px;
-  display: grid;
-  place-items: center;
-  text-align: center;
+  margin-top: 10px;
 }
 
 .NavBar h5 {
@@ -163,7 +149,7 @@
   box-sizing: border-box;
   min-height: 100%;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   align-content: start;
   gap: 8px;
   font-family: "EB Garamond", serif;
@@ -724,7 +710,7 @@
   display: grid;
   margin: 0;
   padding: 0;
-  grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 561px));
+  grid-template-columns: repeat(5, minmax(0, 1fr));
   gap: 8px;
   justify-content: start;
 }
@@ -816,6 +802,10 @@
     margin-top: 7.5vh;
   }
 
+  .projects-container {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .singleProject {
     margin-left: 2.5vh;
     margin-top: 7.5vh;
@@ -873,6 +863,10 @@
     margin-left: 2.5vh;
     margin-top: 7.5vh;
 
+  }
+
+  .gallery {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .NavBar2 {
