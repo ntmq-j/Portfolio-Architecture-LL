@@ -1,5 +1,4 @@
 import { Route, Routes } from 'react-router-dom'
-import img1 from "./images/img1.jpg"
 import NavBar from './Components/Navbar'
 import './App.css'
 import { useState, useEffect } from 'react'
@@ -9,22 +8,12 @@ import Curriculum from './Components/Curriculum'
 import LoadingScreen from './Components/LoadingScreen'
 import Projects from './Components/Projects'
 import Fotography from './Components/Fotography'
-
-import P1 from './Components/Projects/P1'
-import P2 from './Components/Projects/P2'
-import P3 from './Components/Projects/P3'
-import P4 from './Components/Projects/P4'
-import P5 from './Components/Projects/P5'
-import P6 from './Components/Projects/P6'
-import P7 from './Components/Projects/P7'
-import P8 from './Components/Projects/P8'
-import P9 from './Components/Projects/P9'
+import ProjectDetail from './Components/ProjectDetail'
 
 
 function App() {
 
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const [laggedPosition, setLaggedPosition] = useState({ x: 0, y: 0 });
 
   const [cursorVariant, setCursorVariant] = useState("default")
 
@@ -34,10 +23,6 @@ function App() {
         x: e.clientX,
         y: e.clientY
       })
-      setLaggedPosition({
-        x: e.clientX,
-        y: e.clientY
-      });
     }
 
     window.addEventListener('mousemove', handleMouseMove)
@@ -95,15 +80,7 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/projects" element={<Projects textEnter={textEnter} textLeave={textLeave} />} />
-          <Route path="/projects/p1" element={<P1 textEnter={textEnter} textLeave={textLeave} />} />
-          <Route path="/projects/p2" element={<P2 textEnter={textEnter} textLeave={textLeave} />} />
-          <Route path="/projects/p3" element={<P3 textEnter={textEnter} textLeave={textLeave} />} />
-          <Route path="/projects/p4" element={<P4 textEnter={textEnter} textLeave={textLeave} />} />
-          <Route path="/projects/p5" element={<P5 textEnter={textEnter} textLeave={textLeave} />} />
-          <Route path="/projects/p6" element={<P6 textEnter={textEnter} textLeave={textLeave} />} />
-          <Route path="/projects/p7" element={<P7 textEnter={textEnter} textLeave={textLeave} />} />
-          <Route path="/projects/p8" element={<P8 textEnter={textEnter} textLeave={textLeave} />} />
-          <Route path="/projects/p9" element={<P9 textEnter={textEnter} textLeave={textLeave} />} />
+          <Route path="/projects/:projectId" element={<ProjectDetail textEnter={textEnter} textLeave={textLeave} />} />
           <Route path="/fotography" element={<Fotography />} />
           <Route path="/curriculum" element={<Curriculum />} />
         </Routes>

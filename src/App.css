@@ -170,6 +170,30 @@
   color: #2e2e2e;
 }
 
+.project-card {
+  overflow: hidden;
+  position: relative;
+}
+
+.project-info {
+  width: 100%;
+  height: 100%;
+  top: 0;
+  right: -100%;
+  position: absolute;
+  background: #ffffff71;
+  backdrop-filter: blur(3px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  transition: 1s;
+}
+
+.project-card:hover .project-info {
+  right: 0;
+}
+
 .p1 {
   overflow: hidden;
   position: relative;
@@ -398,6 +422,40 @@
 
 }
 
+.project-detail {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+}
+
+.project-heading {
+  width: 70%;
+  font-family: "EB Garamond", serif;
+}
+
+.project-heading a {
+  color: #2e2e2e;
+  cursor: none;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.project-heading h1 {
+  color: #2e2e2e;
+  font-size: 32px;
+  font-weight: 500;
+  line-height: 1.1;
+}
+
+.project-heading p {
+  color: #5b5b5b;
+  font-size: 18px;
+}
+
 .wrapper {
   display: flex;
   justify-content: center;
@@ -407,8 +465,21 @@
   gap: 20px;
 }
 
+.wrapper figure {
+  margin: 0;
+  width: 100%;
+  text-align: right;
+}
+
 .wrapper img {
   width: 100%;
+}
+
+.wrapper figcaption {
+  color: #5b5b5b;
+  font-family: "EB Garamond", serif;
+  font-size: 16px;
+  padding-top: 8px;
 }
 
 .wrapper button {
@@ -569,6 +640,14 @@
   .singleProject {
     margin-left: 2.5vh;
     margin-top: 7.5vh;
+  }
+
+  .project-heading {
+    width: 90%;
+  }
+
+  .project-heading a {
+    cursor: pointer;
   }
 
   .curriculum {
@@ -740,6 +819,10 @@
 }
 
 @media screen and (max-width: 500px) {
+  .project-info {
+    font-size: 12px;
+  }
+
   .p1Info {
     font-size: 12px;
   }

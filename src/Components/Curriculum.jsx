@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import img1 from "../cv/cv11.jpg"
 import img2 from "../cv/cv22.jpg"
 const Curriculum = () => {
