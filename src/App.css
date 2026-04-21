@@ -688,12 +688,12 @@
   height: min(86vh, 980px);
   aspect-ratio: 4 / 5;
   overflow: hidden;
-  padding: min(5.4vh, 58px) min(4.4vh, 48px);
+  padding: min(4.2vh, 46px) min(3.7vh, 40px);
   background-color: #fff;
 }
 
 .cv-page--experience {
-  padding-top: min(7.2vh, 78px);
+  padding-top: min(6vh, 66px);
 }
 
 .cv-hero {
@@ -701,7 +701,7 @@
   grid-template-columns: 0.95fr 1fr;
   align-items: end;
   gap: min(3.2vh, 34px);
-  margin-bottom: min(4.8vh, 52px);
+  margin-bottom: min(3.5vh, 38px);
 }
 
 .cv-portrait {
@@ -753,7 +753,7 @@
 }
 
 .cv-intro p {
-  margin: 0 0 min(3vh, 34px);
+  margin: 0 0 min(2vh, 22px);
   font-size: min(2vh, 23px);
   line-height: 1.16;
 }
@@ -771,11 +771,11 @@
 }
 
 .cv-section {
-  margin-top: min(4.9vh, 54px);
+  margin-top: min(3.2vh, 35px);
 }
 
 .cv-section h2 {
-  margin: 0 0 min(1.7vh, 19px);
+  margin: 0 0 min(1.2vh, 13px);
   font-size: min(3.3vh, 38px);
   font-weight: 400;
   line-height: 1;
@@ -797,7 +797,7 @@
   display: grid;
   grid-template-columns: minmax(104px, 0.42fr) minmax(0, 1fr);
   gap: min(3.4vh, 38px);
-  margin-top: min(1.7vh, 19px);
+  margin-top: min(1.1vh, 12px);
 }
 
 .cv-period {
@@ -827,7 +827,7 @@
 }
 
 .cv-entry-body ul {
-  margin: min(0.8vh, 9px) 0 0;
+  margin: min(0.45vh, 5px) 0 0;
   padding-left: 0;
   list-style-position: inside;
 }
@@ -848,17 +848,6 @@
 }
 
 @media screen and (max-width: 1400px) {
-  .cv-hero {
-    grid-template-columns: 1fr;
-    align-items: start;
-    gap: min(2vh, 22px);
-    margin-bottom: min(3.4vh, 38px);
-  }
-
-  .cv-portrait {
-    width: 78%;
-  }
-
   .curriculum::-webkit-scrollbar {
     display: none;
   }
