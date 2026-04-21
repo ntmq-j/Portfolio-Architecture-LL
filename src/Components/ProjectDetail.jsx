@@ -33,16 +33,16 @@ const ProjectDetail = ({ textEnter, textLeave }) => {
     <div className="singleProject">
       <article className="project-detail project-detail-split">
         <aside className="project-meta-panel">
-          <Link
-            className="project-back-link"
-            to="/projects"
-            onMouseEnter={textEnter}
-            onMouseLeave={textLeave}
-          >
-            Projects
-          </Link>
+          <div className="project-meta-top">
+            <Link
+              className="project-back-link"
+              to="/projects"
+              onMouseEnter={textEnter}
+              onMouseLeave={textLeave}
+            >
+              Projects
+            </Link>
 
-          <div className="project-meta-content">
             <header className="project-heading">
               <h1>{project.title}</h1>
               <p>
@@ -50,33 +50,35 @@ const ProjectDetail = ({ textEnter, textLeave }) => {
                 {project.result && ` · ${project.result}`}
               </p>
             </header>
+          </div>
 
+          <div className="project-meta-middle">
             {project.description && (
               <section className="project-about">
                 <h2>About</h2>
                 <p>{project.description}</p>
               </section>
             )}
-
-            <dl className="project-facts">
-              <div>
-                <dt>Pages</dt>
-                <dd>{imageCount}</dd>
-              </div>
-              {project.year && (
-                <div>
-                  <dt>Year</dt>
-                  <dd>{project.year}</dd>
-                </div>
-              )}
-              {project.location && (
-                <div>
-                  <dt>Location</dt>
-                  <dd>{project.location}</dd>
-                </div>
-              )}
-            </dl>
           </div>
+
+          <dl className="project-facts">
+            <div>
+              <dt>Pages</dt>
+              <dd>{imageCount}</dd>
+            </div>
+            {project.year && (
+              <div>
+                <dt>Year</dt>
+                <dd>{project.year}</dd>
+              </div>
+            )}
+            {project.location && (
+              <div>
+                <dt>Location</dt>
+                <dd>{project.location}</dd>
+              </div>
+            )}
+          </dl>
         </aside>
 
         <section className="project-scroll-viewer">
