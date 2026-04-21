@@ -9,6 +9,7 @@
     "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
+    "resize:project": "node scripts/resize-project-details.mjs",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },
@@ -30,6 +31,7 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.5",
     "gh-pages": "^6.1.1",
+    "sharp": "^0.34.5",
     "vite": "^5.1.0"
   }
 }
