@@ -121,6 +121,27 @@ const Curriculum = () => {
             ))}
           </section>
 
+        </article>
+
+        <article className="cv-page cv-page--experience">
+          <section className="cv-section" aria-labelledby="internships-title">
+            <h2 id="internships-title">Internships</h2>
+            {internships.map((item) => (
+              <div className="cv-entry" key={`${item.period}-${item.title}`}>
+                <div className="cv-period">{item.period}</div>
+                <div className="cv-entry-body">
+                  <h3>{item.title}</h3>
+                  <p>{item.place}</p>
+                  <ul>
+                    {item.details.map((detail) => (
+                      <li key={detail}>{detail}</li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            ))}
+          </section>
+
           <section className="cv-section" aria-labelledby="skills-title">
             <h2 id="skills-title">Skills</h2>
             <div className="cv-list">
@@ -143,26 +164,6 @@ const Curriculum = () => {
                 </div>
               ))}
             </div>
-          </section>
-        </article>
-
-        <article className="cv-page cv-page--experience">
-          <section className="cv-section" aria-labelledby="internships-title">
-            <h2 id="internships-title">Internships</h2>
-            {internships.map((item) => (
-              <div className="cv-entry" key={`${item.period}-${item.title}`}>
-                <div className="cv-period">{item.period}</div>
-                <div className="cv-entry-body">
-                  <h3>{item.title}</h3>
-                  <p>{item.place}</p>
-                  <ul>
-                    {item.details.map((detail) => (
-                      <li key={detail}>{detail}</li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            ))}
           </section>
         </article>
       </div>

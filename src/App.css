@@ -688,12 +688,12 @@
   height: min(86vh, 980px);
   aspect-ratio: 4 / 5;
   overflow: hidden;
-  padding: min(4.2vh, 46px) min(3.7vh, 40px);
+  padding: min(4.6vh, 50px) min(4vh, 44px);
   background-color: #fff;
 }
 
 .cv-page--experience {
-  padding-top: min(6vh, 66px);
+  padding-top: min(5.2vh, 57px);
 }
 
 .cv-hero {
@@ -742,7 +742,7 @@
 
 .cv-intro h1 {
   margin: 0 0 min(0.6vh, 7px);
-  font-size: min(2.6vh, 30px);
+  font-size: min(2.9vh, 33px);
   font-weight: 400;
   line-height: 1.06;
 }
@@ -754,12 +754,12 @@
 
 .cv-intro p {
   margin: 0 0 min(2vh, 22px);
-  font-size: min(2vh, 23px);
+  font-size: min(2.15vh, 24px);
   line-height: 1.16;
 }
 
 .cv-intro address {
-  font-size: min(1.65vh, 19px);
+  font-size: min(1.78vh, 20px);
   font-style: normal;
   line-height: 1.45;
 }
@@ -771,12 +771,12 @@
 }
 
 .cv-section {
-  margin-top: min(3.2vh, 35px);
+  margin-top: min(3.35vh, 37px);
 }
 
 .cv-section h2 {
   margin: 0 0 min(1.2vh, 13px);
-  font-size: min(3.3vh, 38px);
+  font-size: min(3.5vh, 40px);
   font-weight: 400;
   line-height: 1;
 }
@@ -788,7 +788,7 @@
 
 .cv-summary p {
   margin: 0;
-  font-size: min(1.45vh, 16px);
+  font-size: min(1.62vh, 18px);
   font-style: italic;
   line-height: 1.32;
 }
@@ -797,19 +797,19 @@
   display: grid;
   grid-template-columns: minmax(104px, 0.42fr) minmax(0, 1fr);
   gap: min(3.4vh, 38px);
-  margin-top: min(1.1vh, 12px);
+  margin-top: min(1.25vh, 14px);
 }
 
 .cv-period {
   padding-top: min(0.2vh, 3px);
-  font-size: min(1.55vh, 17px);
+  font-size: min(1.72vh, 19px);
   font-weight: 700;
   line-height: 1.2;
 }
 
 .cv-entry-body h3 {
   margin: 0;
-  font-size: min(1.7vh, 19px);
+  font-size: min(1.9vh, 21px);
   font-weight: 500;
   line-height: 1.18;
 }
@@ -817,7 +817,7 @@
 .cv-entry-body p,
 .cv-entry-body li,
 .cv-list-row {
-  font-size: min(1.43vh, 16px);
+  font-size: min(1.58vh, 17px);
   line-height: 1.32;
 }
 
