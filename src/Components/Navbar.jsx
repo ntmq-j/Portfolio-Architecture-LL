@@ -1,4 +1,4 @@
-import logo from "../images/logo.png"
+import logo from "../logo/logo.png"
 import { useState, useEffect } from 'react'
 import { Link, useLocation } from "react-router-dom"
 import { FaRegCopy } from "react-icons/fa6";
@@ -106,7 +106,7 @@ const NavBar = ({ textEnter, textLeave }) => {
                         )}
                         <Link to="/fotography"><h5>Fotography</h5></Link>
                         {displayEmail ? (
-                            <h5 onClick={handleCopyEmail}>amcasep@gmail.com <FaRegCopy /></h5>
+                            <h5 onClick={handleCopyEmail}>lenguyengialam2004@gmail.com <FaRegCopy /></h5>
                         ) : (
                             <h5 onClick={handleContactClick}>Contact</h5>
                         )}

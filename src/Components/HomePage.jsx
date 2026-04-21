@@ -1,45 +1,67 @@
-import img2 from "../images/img2.jpg"
-import img3 from "../images/img3.jpg"
-import img4 from "../images/img4.jpg"
-import img5 from "../images/img5.jpg"
-import img6 from "../images/img6.jpg"
-import img7 from "../images/img7.jpg"
-import img8 from "../images/img8.jpg"
-import img9 from "../images/img9.jpg"
+import { useEffect, useMemo, useState } from "react";
 
+const galleryModules = import.meta.glob("../gallery/*.{jpg,jpeg,png,webp}", {
+  eager: true,
+  import: "default",
+});
 
-import { useEffect, useState } from "react"
+const shuffleImages = (images) => {
+  const shuffled = [...images];
+
+  for (let index = shuffled.length - 1; index > 0; index -= 1) {
+    const randomIndex = Math.floor(Math.random() * (index + 1));
+    [shuffled[index], shuffled[randomIndex]] = [
+      shuffled[randomIndex],
+      shuffled[index],
+    ];
+  }
+
+  return shuffled;
+};
 
 const HomePage = () => {
-        const [currentSlide, setCurrentSlide] = useState(0);
-        const images = [img4, img2, img3, img5, img6, img7, img8, img9];
+  const images = useMemo(
+    () =>
+      shuffleImages(
+        Object.entries(galleryModules)
+          .sort(([pathA], [pathB]) =>
+            pathA.localeCompare(pathB, undefined, {
+              numeric: true,
+              sensitivity: "base",
+            }),
+          )
+          .map(([, image]) => image),
+      ),
+    [],
+  );
+  const [currentSlide, setCurrentSlide] = useState(0);
 
-    useEffect(() => {
-        const interval = setInterval(() => {
-            setCurrentSlide((prev) => (prev + 1) % images.length);
-        },4000);
+  useEffect(() => {
+    if (images.length === 0) {
+      return undefined;
+    }
 
-        return () => clearInterval(interval);
-    }, [images.length]); 
+    const interval = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % images.length);
+    }, 4000);
 
-    return (
-        <>
-            <div className="img-container">
-                <div className="carousel-container">
-                
-                    {images.map((image, index) => (
-                
-                    <img
-                        key={index}
-                        className={index === currentSlide ? 'active' : 'image'}
-                        src={image}
-                        alt={`Slide ${index}`}
-                    />
-                ))}
-                </div>
-            </div>
-        </>
-    );
-}
+    return () => clearInterval(interval);
+  }, [images.length]);
+
+  return (
+    <div className="img-container">
+      <div className="carousel-container">
+        {images.map((image, index) => (
+          <img
+            key={image}
+            className={index === currentSlide ? "active" : "image"}
+            src={image}
+            alt={`Slide ${index + 1}`}
+          />
+        ))}
+      </div>
+    </div>
+  );
+};
 
 export default HomePage;
