@@ -50,7 +50,7 @@ const NavBar = ({ textEnter, textLeave }) => {
         setDisplayEmail(!displayEmail);
     }
     const handleCopyEmail = () => {
-        navigator.clipboard.writeText("amcasep@gmail.com")
+        navigator.clipboard.writeText("lenguyengialam2004@gmail.com")
             .then(() => {
                 console.log('Email copied to clipboard');
             })
@@ -78,7 +78,7 @@ const NavBar = ({ textEnter, textLeave }) => {
                 )}
                 <Link to="/fotography"><h5 onMouseEnter={textEnter} onMouseLeave={textLeave} >Fotography</h5></Link>
                 {displayEmail ? (
-                    <h5 onClick={handleCopyEmail} onMouseEnter={textEnter} onMouseLeave={textLeave}>amcasep@gmail.com <FaRegCopy /></h5>
+                    <h5 onClick={handleCopyEmail} onMouseEnter={textEnter} onMouseLeave={textLeave}>lenguyengialam2004@gmail.com <FaRegCopy /></h5>
                 ) : (
                     <h5 onClick={handleContactClick} onMouseEnter={textEnter} onMouseLeave={textLeave}>Contact</h5>
                 )}
