@@ -1,4 +1,4 @@
-const coverModules = import.meta.glob("../projects/*.jpg", {
+const coverModules = import.meta.glob("../projects/*/cover.jpg", {
   eager: true,
   import: "default",
 });
@@ -15,11 +15,14 @@ const sortByFileNumber = ([pathA], [pathB]) => {
   return numberA - numberB;
 };
 
-const getCoverImage = (id) => coverModules[`../projects/${id}.jpg`];
+const getCoverImage = (id) => coverModules[`../projects/${id}/cover.jpg`];
 
 const getGalleryImages = (id) =>
   Object.entries(galleryModules)
-    .filter(([path]) => path.startsWith(`../projects/${id}/`))
+    .filter(
+      ([path]) =>
+        path.startsWith(`../projects/${id}/`) && /\/\d+\.jpg$/.test(path),
+    )
     .sort(sortByFileNumber)
     .map(([, image]) => image);
 
