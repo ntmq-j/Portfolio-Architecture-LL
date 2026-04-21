@@ -556,7 +556,7 @@
 
 .project-page {
   margin: 0 auto 36px;
-  width: 100%;
+  width: min(70%, 1040px);
 }
 
 .project-page img {
