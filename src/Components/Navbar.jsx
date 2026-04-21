@@ -30,8 +30,8 @@ const NavBar = ({ textEnter, textLeave }) => {
 
     const handleDownload = () => {
 
-        const url = './Lebenslauf_Amparo_Cabezuelo_Architect.pdf';
-        const fileName = 'Lebenslauf_Amparo_Cabezuelo_Architect.pdf'
+        const url = './Nguyen_Gia_Lam_Resume.pdf';
+        const fileName = 'Nguyen_Gia_Lam_Resume.pdf'
 
         axios
             .get(url, { responseType: 'blob' })
