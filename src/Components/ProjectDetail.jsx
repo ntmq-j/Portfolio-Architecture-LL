@@ -1,32 +1,16 @@
-import { useEffect, useState } from "react";
-import { FiMaximize2, FiZoomIn, FiZoomOut } from "react-icons/fi";
+import { useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 
 import { getProjectById } from "../data/projects";
-
-const DEFAULT_ZOOM = 70;
-const MIN_ZOOM = 50;
-const MAX_ZOOM = 100;
-const ZOOM_STEP = 10;
 
 const ProjectDetail = ({ textEnter, textLeave }) => {
   const { projectId } = useParams();
   const project = getProjectById(projectId);
   const imageCount = project?.images.length ?? 0;
-  const [zoomLevel, setZoomLevel] = useState(DEFAULT_ZOOM);
 
   useEffect(() => {
     textLeave();
-    setZoomLevel(DEFAULT_ZOOM);
   }, [projectId, textLeave]);
-
-  const zoomOut = () => {
-    setZoomLevel((currentZoom) => Math.max(MIN_ZOOM, currentZoom - ZOOM_STEP));
-  };
-
-  const zoomIn = () => {
-    setZoomLevel((currentZoom) => Math.min(MAX_ZOOM, currentZoom + ZOOM_STEP));
-  };
 
   if (!project) {
     return (
@@ -97,46 +81,7 @@ const ProjectDetail = ({ textEnter, textLeave }) => {
           </dl>
         </aside>
 
-        <section
-          className="project-scroll-viewer"
-          style={{ "--project-page-width": `${zoomLevel}%` }}
-        >
-          {imageCount > 0 && (
-            <div className="project-viewer-toolbar" aria-label="Image zoom">
-              <button
-                aria-label="Zoom out"
-                disabled={zoomLevel === MIN_ZOOM}
-                onClick={zoomOut}
-                onMouseEnter={textEnter}
-                onMouseLeave={textLeave}
-                type="button"
-              >
-                <FiZoomOut />
-              </button>
-              <span>{zoomLevel}%</span>
-              <button
-                aria-label="Zoom in"
-                disabled={zoomLevel === MAX_ZOOM}
-                onClick={zoomIn}
-                onMouseEnter={textEnter}
-                onMouseLeave={textLeave}
-                type="button"
-              >
-                <FiZoomIn />
-              </button>
-              <button
-                aria-label="Reset zoom"
-                disabled={zoomLevel === DEFAULT_ZOOM}
-                onClick={() => setZoomLevel(DEFAULT_ZOOM)}
-                onMouseEnter={textEnter}
-                onMouseLeave={textLeave}
-                type="button"
-              >
-                <FiMaximize2 />
-              </button>
-            </div>
-          )}
-
+        <section className="project-scroll-viewer">
           {imageCount === 0 ? (
             <p className="project-empty-state">No project images found.</p>
           ) : (

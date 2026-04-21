@@ -52,18 +52,32 @@
 .NavBar {
   position: fixed;
   bottom: 2.5vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
   align-items: center;
   width: 250px;
   height: 95vh;
   z-index: 9998;
+  box-sizing: border-box;
+  padding-top: 8px;
 }
 
 .NavBar img {
   width: 100px;
-  margin-top: 10px;
+}
+
+.navLinks {
+  align-self: center;
+  display: grid;
+  justify-items: center;
+  gap: clamp(56px, 13vh, 150px);
+}
+
+.navContact {
+  min-height: 28px;
+  display: grid;
+  place-items: center;
+  text-align: center;
 }
 
 .NavBar h5 {
@@ -142,20 +156,23 @@
 .Projects {
   margin-left: 250px;
   width: 100%;
-  overflow: hidden;
+  overflow-y: auto;
 }
 
 .projects-container {
-  overflow: hidden;
-  height: 100%;
+  box-sizing: border-box;
+  min-height: 100%;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(460px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  align-content: start;
   gap: 8px;
   font-family: "EB Garamond", serif;
 }
 
 .projects-container a {
-  overflow: hidden;
+  position: absolute;
+  inset: 0;
+  display: block;
   color: black;
   cursor: none;
 }
@@ -173,14 +190,11 @@
 .project-card {
   overflow: hidden;
   position: relative;
-  aspect-ratio: 3 / 4;
+  aspect-ratio: 561 / 700;
 }
 
 .project-info {
-  width: 100%;
-  height: 100%;
-  top: 0;
-  right: -100%;
+  inset: 0;
   position: absolute;
   background: #ffffff71;
   backdrop-filter: blur(3px);
@@ -188,11 +202,22 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  transition: 1s;
+  gap: 8px;
+  padding: 32px;
+  box-sizing: border-box;
+  text-align: center;
+  transform: translateX(100%);
+  transition: transform 0.8s ease;
+}
+
+.project-info h2,
+.project-info h4,
+.project-info p {
+  margin: 0;
 }
 
 .project-card:hover .project-info {
-  right: 0;
+  transform: translateX(0);
 }
 
 .p1 {
@@ -548,50 +573,6 @@
   scroll-behavior: smooth;
 }
 
-.project-viewer-toolbar {
-  position: sticky;
-  top: 0;
-  z-index: 2;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 16px;
-  padding: 4px 0 12px;
-  background-color: #fff;
-  color: #2e2e2e;
-  font-family: "EB Garamond", serif;
-  font-size: 14px;
-}
-
-.project-viewer-toolbar button {
-  width: 32px;
-  height: 32px;
-  display: grid;
-  place-items: center;
-  border: 1px solid #d8d8d8;
-  background-color: #fff;
-  color: #2e2e2e;
-  cursor: none;
-  font-size: 16px;
-  transition: border-color 0.2s ease, color 0.2s ease, opacity 0.2s ease;
-}
-
-.project-viewer-toolbar button:hover {
-  border-color: #2e2e2e;
-  color: #000;
-}
-
-.project-viewer-toolbar button:disabled {
-  opacity: 0.35;
-  pointer-events: none;
-}
-
-.project-viewer-toolbar span {
-  min-width: 42px;
-  text-align: center;
-}
-
 .project-scroll-viewer::-webkit-scrollbar,
 .project-meta-panel::-webkit-scrollbar,
 .project-meta-middle::-webkit-scrollbar {
@@ -600,7 +581,7 @@
 
 .project-page {
   margin: 0 auto 36px;
-  width: min(var(--project-page-width, 70%), 1040px);
+  width: min(70%, 1040px);
 }
 
 .project-page img {
@@ -743,18 +724,22 @@
   display: grid;
   margin: 0;
   padding: 0;
-  grid-template-columns: repeat(auto-fit, minmax(440px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 561px));
   gap: 8px;
+  justify-content: start;
 }
 
 .gallery li {
-  height: 700px;
+  aspect-ratio: 561 / 700;
+  height: auto;
+  overflow: hidden;
 }
 
 .gallery li img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center;
 }
 
 /* LOADING PAGE */
@@ -814,10 +799,6 @@
   }
 
   .wrapper button {
-    cursor: pointer;
-  }
-
-  .project-viewer-toolbar button {
     cursor: pointer;
   }
 
