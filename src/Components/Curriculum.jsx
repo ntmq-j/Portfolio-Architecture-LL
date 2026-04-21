@@ -57,15 +57,15 @@ const languages = [
 const Curriculum = () => {
   return (
     <div className="curriculum">
-      <div className="cv-spread" aria-label="Nguyen Gia Lam curriculum vitae">
+      <div className="cv-spread" aria-label="Nguyen Gia Lam Le curriculum vitae">
         <article className="cv-page cv-page--intro">
           <header className="cv-hero">
             <div className="cv-portrait" aria-label="Profile portrait">
               {profileImage ? (
-                <img src={profileImage} alt="Nguyen Gia Lam" />
+                <img src={profileImage} alt="Nguyen Gia Lam Le" />
               ) : (
                 <div className="cv-portrait-placeholder">
-                  <span>Nguyen Gia Lam</span>
+                  <span>Nguyen Gia Lam Le</span>
                   <span>Jimmy</span>
                 </div>
               )}
@@ -74,7 +74,7 @@ const Curriculum = () => {
             <div className="cv-intro">
               <h1>
                 Nguyen Gia Lam
-                <span>(Jimmy)</span>
+                <span>(Jimmy) Le</span>
               </h1>
               <p>Graduate Architecture Student</p>
               <address>
@@ -97,7 +97,13 @@ const Curriculum = () => {
               concept design, site work, and documentation. Skilled in Rhino,
               with developing proficiency in Revit and strong capabilities in
               Adobe Creative Suite. Currently undertaking a Graduate Certificate
-              towards a Master of Construction Management.
+              towards a Master of Construction Management. My work is shaped
+              by an interest in sustainable design, careful spatial sequencing,
+              and visual communication that makes architectural ideas clear and
+              legible. Through studio projects and professional practice, I have
+              developed a detail-oriented approach to research, drawing,
+              modelling, and presentation, while continuing to build confidence
+              in collaborative design environments.
             </p>
           </section>
 
