@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 
@@ -8,11 +8,42 @@ const ProjectDetail = ({ textEnter, textLeave }) => {
   const { projectId } = useParams();
   const project = getProjectById(projectId);
   const [currentImage, setCurrentImage] = useState(0);
+  const imageCount = project?.images.length ?? 0;
 
   useEffect(() => {
     textLeave();
     setCurrentImage(0);
   }, [projectId, textLeave]);
+
+  const nextImage = useCallback(() => {
+    if (imageCount < 2) return;
+
+    setCurrentImage((prev) => (prev + 1) % imageCount);
+  }, [imageCount]);
+
+  const prevImage = useCallback(() => {
+    if (imageCount < 2) return;
+
+    setCurrentImage(
+      (prev) => (prev - 1 + imageCount) % imageCount,
+    );
+  }, [imageCount]);
+
+  useEffect(() => {
+    const handleKeyDown = (event) => {
+      if (event.key === "ArrowLeft") {
+        prevImage();
+      }
+
+      if (event.key === "ArrowRight") {
+        nextImage();
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [nextImage, prevImage]);
 
   if (!project) {
     return (
@@ -31,15 +62,23 @@ const ProjectDetail = ({ textEnter, textLeave }) => {
     );
   }
 
-  const nextImage = () => {
-    setCurrentImage((prev) => (prev + 1) % project.images.length);
-  };
-
-  const prevImage = () => {
-    setCurrentImage(
-      (prev) => (prev - 1 + project.images.length) % project.images.length,
+  if (imageCount === 0) {
+    return (
+      <div className="singleProject">
+        <div className="project-heading">
+          <Link
+            to="/projects"
+            onMouseEnter={textEnter}
+            onMouseLeave={textLeave}
+          >
+            Projects
+          </Link>
+          <h1>{project.title}</h1>
+          <p>No project images found.</p>
+        </div>
+      </div>
     );
-  };
+  }
 
   return (
     <div className="singleProject">
@@ -59,12 +98,17 @@ const ProjectDetail = ({ textEnter, textLeave }) => {
           </p>
         </header>
 
-        <div className="wrapper">
-          <button onClick={prevImage} aria-label="Previous image">
-            <IoIosArrowBack
-              onMouseEnter={textEnter}
-              onMouseLeave={textLeave}
-            />
+        <div className="wrapper project-viewer">
+          <button
+            className="project-nav-button"
+            type="button"
+            onClick={prevImage}
+            onMouseEnter={textEnter}
+            onMouseLeave={textLeave}
+            aria-label="Previous image"
+            disabled={imageCount < 2}
+          >
+            <IoIosArrowBack />
           </button>
           <figure className="project-image-frame">
             <img
@@ -73,14 +117,19 @@ const ProjectDetail = ({ textEnter, textLeave }) => {
               alt={`${project.title} ${currentImage + 1}`}
             />
             <figcaption>
-              {currentImage + 1} / {project.images.length}
+              {currentImage + 1} / {imageCount}
             </figcaption>
           </figure>
-          <button onClick={nextImage} aria-label="Next image">
-            <IoIosArrowForward
-              onMouseEnter={textEnter}
-              onMouseLeave={textLeave}
-            />
+          <button
+            className="project-nav-button"
+            type="button"
+            onClick={nextImage}
+            onMouseEnter={textEnter}
+            onMouseLeave={textLeave}
+            aria-label="Next image"
+            disabled={imageCount < 2}
+          >
+            <IoIosArrowForward />
           </button>
         </div>
       </div>

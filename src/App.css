@@ -173,6 +173,7 @@
 .project-card {
   overflow: hidden;
   position: relative;
+  aspect-ratio: 3 / 4;
 }
 
 .project-info {
@@ -465,6 +466,12 @@
   gap: 20px;
 }
 
+.project-viewer {
+  width: min(90%, 900px);
+  height: min(76vh, 820px);
+  gap: 16px;
+}
+
 .wrapper figure {
   margin: 0;
   width: 100%;
@@ -497,9 +504,22 @@
   transition: 0.5s;
 }
 
+.project-nav-button {
+  flex: 0 0 52px;
+  width: 52px;
+  height: 52px;
+  display: grid;
+  place-items: center;
+}
+
 .wrapper button:hover {
   color: rgb(231, 216, 208);
-  transform: translateX(7px);
+  opacity: 1;
+}
+
+.wrapper button:disabled {
+  opacity: 0.25;
+  pointer-events: none;
 }
 
 
