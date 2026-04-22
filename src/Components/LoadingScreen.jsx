@@ -2,8 +2,8 @@ import {useTypewriter, Cursor} from "react-simple-typewriter"
 
 const LoadingScreen = () => {
 const [typeEffect] = useTypewriter({
-    words: ['Architecture Portfolio'],
-    typeSpeed:100
+    words: ['Architecture Portfolio.'],
+    typeSpeed:120
 })
     return (
         <div className="loading-page">
